@@ -1,4 +1,4 @@
-from terrain.model import Terrain, Flux
+from terrain.model import Terrain, Flux, UV
 
 def test_init_terrain():
 
@@ -19,12 +19,21 @@ def test_init_terrain():
     assert len(my_terrain.suspended_sediment) == SIZE
     assert len(my_terrain.suspended_sediment[0]) == SIZE
 
-    # test that flux is 2d array of four tuple
+    # flux
     assert my_terrain.flux[0][0].left == 0
 
-def test_flux():
+    # velocity_vector
+    assert my_terrain.velocity[0][0].u == 0
 
-    SIZE = 256
+def test_uv():
+    velocity_vector = UV(.1, .3)
+
+    assert velocity_vector.u == .1
+    assert velocity_vector.v == .3
+
+
+
+def test_flux():
 
     flux = Flux(.1, .2, .3, .4)
 
