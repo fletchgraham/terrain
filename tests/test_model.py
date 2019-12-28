@@ -15,6 +15,13 @@ def test_init_terrain():
     assert len(my_terrain.water_height) == SIZE
     assert len(my_terrain.water_height[0]) == SIZE
 
+    # test that suspended_sediment is a 2d array
+    assert len(my_terrain.suspended_sediment) == SIZE
+    assert len(my_terrain.suspended_sediment[0]) == SIZE
+
+    # test that flux is 2d array of four tuple
+    assert my_terrain.flux[0][0].left == 0
+
 def test_flux():
 
     SIZE = 256
